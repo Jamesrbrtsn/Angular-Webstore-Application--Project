@@ -104,6 +104,24 @@
   margin-bottom: 10px;
   position: relative;
 
+  &-authStatus {
+    color: #fff;
+    font-size: 12px;
+    line-height: 50px;
+    padding: 0 10px;
+    position: absolute;
+      right: 0; top: 0;
+
+    a:hover {
+      text-decoration: underline;
+    }
+    .divider {
+      display: inline-block;
+      opacity: .5;
+      padding: 0 4px;
+    }
+  }
+
   &-siteTitle {
     font-size: 30px;
     line-height: 50px;

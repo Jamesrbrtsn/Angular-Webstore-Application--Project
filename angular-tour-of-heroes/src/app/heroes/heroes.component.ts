@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Hero } from '../hero';
-//import {HEROES} from '../mock-heroes'; traded for below
+// import {HEROES} from '../mock-heroes'; traded for below
 import { HeroService } from '../hero.service';
 
 @Component({
@@ -12,17 +12,15 @@ import { HeroService } from '../hero.service';
 export class HeroesComponent implements OnInit {
 
   heroes: Hero[];
-
   /*hero: Hero = {
     id: 1,
     name: 'Windstorm'
   };*/
-  selectedHero: Hero;
-
+  // selectedHero: Hero; //dead
+  /*Dead
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
-  }
-
+  }*/
   constructor(private heroService: HeroService) { }
 
   ngOnInit() {
@@ -32,7 +30,6 @@ export class HeroesComponent implements OnInit {
   getHeroes(): void {
     this.heroes = this.heroService.getHeroes(); //will need to be asyncronhous in real app for response delays
   }*/
-
   // Asynch
   getHeroes(): void {
     this.heroService.getHeroes()

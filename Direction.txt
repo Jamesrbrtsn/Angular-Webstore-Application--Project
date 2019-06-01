@@ -1,0 +1,64 @@
+
+A file created to log and keep track of future plans, notices and
+directions the project is headed
+
+
+Priorities
+======================================
+1. Build store objects
+2. Create basic outline for store
+3. Create components 
+
+
+
+
+
+Reminder:
+///////////////////////////////////////////////
+-SASS preprocessor abilities - https://en.wikipedia.org/wiki/Sass_(stylesheet_language)
+-Google Search optimization layout:
+    -Google Webmaster Guidelines - https://webmasters.googleblog.com/2014/10/updating-our-technical-webmaster.html
+    -Progressive Enhancement - https://en.wikipedia.org/wiki/Progressive_enhancement#Core_principles
+    -alt tag = "" for decorative pictures
+    -alt tag descriptions for improtant media
+-Work Enviroment Safeguards
+    -Development vs production level (angular mean tutorial)
+///////////////////////////////////////////////
+
+
+Organizational Structure
+----------------------------------------
+webstore-malcolm-co
+/src
+    /app
+        -components
+            -classes
+                ....
+            -....
+                { .html, .scss, .ts, .ts  }
+        -services
+            -....
+        app.component.html
+        app.component.scss
+        app.component.spec.ts
+        app.component.ts
+
+        app.module.ts
+    index.html
+    styles.scss
+    favicon.io
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

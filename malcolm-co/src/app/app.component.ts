@@ -5,6 +5,15 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
+
 export class AppComponent {
-  title = 'malcolm-co';
+  title = 'Malcolm & Co';
+  admin = true;
+
+  toggleManager(): void{
+    this.admin = !this.admin;
+  }
+
+
 }

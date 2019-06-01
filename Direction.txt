@@ -8,7 +8,7 @@ Priorities
 1. Build store objects
 2. Create basic outline for store
 3. Create components 
-
+===================================///
 
 
 
@@ -23,7 +23,7 @@ Reminder:
     -alt tag descriptions for improtant media
 -Work Enviroment Safeguards
     -Development vs production level (angular mean tutorial)
-///////////////////////////////////////////////
+///////////////////////////////////////////----
 
 
 Organizational Structure
@@ -44,19 +44,46 @@ webstore-malcolm-co
         app.component.ts
 
         app.module.ts
-    index.html
+    index.html 
+        //houses tab title, and entrance to app through app-root
     styles.scss
     favicon.io
+---------------------------------------///
+
+
+CD Copies
+--------------------
+Malcolm & Co.
+cd jamesrbrtsn-webstore/malcolm-co
+
+Tour of Heroes - Angular tutorial
+cd jamesrbrtsn-webstore/angular-tour-of-heroes
+
+Real-World Angular Series
+cd jamesrbrtsn-webstore/Real-World Angular Series/jamesrbrtsn-webstore
+
+{
+    cd jamesrbrtsn-webstore/malcolm-co
+    cd jamesrbrtsn-webstore/angular-tour-of-heroes
+    cd jamesrbrtsn-webstore/Real-World Angular Series/jamesrbrtsn-webstore
+}
+----------------///
 
 
 
-
-
-
-
-
-
-
+Future classes
+-export class Account {
+    id: number;
+    name: string;
+    wishlistReference: string;
+    comments: [];
+}
+export class Comment {
+    id: number;
+    title: string;
+    associateAccount: string;
+    //priorContent: [];
+}
 
 
 

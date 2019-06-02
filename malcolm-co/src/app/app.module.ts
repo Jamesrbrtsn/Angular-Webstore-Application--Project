@@ -9,6 +9,14 @@ import { ManagerControlPageComponent } from './components/manager-control-page/m
 import { ShopPageComponent } from './components/shop-page/shop-page.component';
 import { PolicyPageComponent } from './components/policy-page/policy-page.component';
 
+// mport Forms, contains list of external modules needed for the app
+import {FormsModule} from '@angular/forms'; // --houses NgModel
+import { StoreItemComponent } from './components/shop-page/store-item/store-item.component';
+import { ItemDetailComponent } from './components/shop-page/item-detail/item-detail.component';
+import { SearchComponent } from './components/shop-page/search/search.component';
+import { HttpClientModule } from '@angular/common/http';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,10 +25,15 @@ import { PolicyPageComponent } from './components/policy-page/policy-page.compon
     ManagerControlPageComponent,
     ShopPageComponent,
     PolicyPageComponent,
+    StoreItemComponent,
+    ItemDetailComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -19,19 +19,26 @@ export class StoreService {
     private http: HttpClient
   ) { }
 
-  private storeItemsURL = 'api/shop';
+  private host = 'localhost';
+  private apiPort = 3000;
 
-  /** GET items from the server */
+  private apiHostUrl = `http://${this.host}:${this.apiPort}/api`;
+  private itemsUrl = '/items';
+  private avaliableAndQuantity = '/quantity/avaliable';
+  private storeItemsUrl = this.apiHostUrl + this.itemsUrl;
+  private storeFrontUrl = this.apiHostUrl + this.itemsUrl + this.avaliableAndQuantity;
+
+  /** GET items from the server */  //only avaliable and with quantity
   getItems(): Observable<StoreItem[]> {
-    return this.http.get<StoreItem[]>(this.storeItemsURL)
+    return this.http.get<StoreItem[]>(this.storeFrontUrl)
       .pipe(
-        tap(_ => this.log('fetched heroes')),
+        tap(_ => this.log('items')),
         catchError(this.handleError<StoreItem[]>('getItems', []))
       );
   }
 
   getItemNo404<Data>(id: number): Observable<StoreItem> {
-    const url = `${this.storeItemsURL}/?id=${id}`;
+    const url = `${this.storeItemsUrl}/?id=${id}`;
     return this.http.get<StoreItem[]>(url)
       .pipe(
         map(items => items[0]), // returns a {0|1} element array
@@ -46,7 +53,7 @@ export class StoreService {
   // getItem(id: )
   /** GET item by id. Will 404 if id not found */
   getItem(id: number): Observable<StoreItem> {
-    const url = `${this.storeItemsURL}/${id}`;
+    const url = `${this.storeItemsUrl}/${id}`;
     return this.http.get<StoreItem>(url).pipe(
       tap(_ => this.log(`fetched hero id=${id}`)),
       catchError(this.handleError<StoreItem>(`getItem id=${id}`))
@@ -59,15 +66,15 @@ export class StoreService {
       // if not search term, return empty hero array.
       return of([]);
     }
-    return this.http.get<StoreItem[]>(`${this.storeItemsURL}/?name=${term}`).pipe(
+    return this.http.get<StoreItem[]>(`${this.storeItemsUrl}/?name=${term}`).pipe(
       tap(_ => this.log(`found items matching "${term}"`)),
       catchError(this.handleError<StoreItem[]>('searchItems', []))
     );
   }
 
-  //addItem(obj)
-  //deleteItem(obj | id)
-  //updateItem
+  // addItem(obj)
+  // deleteItem(obj | id)
+  // updateItem
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

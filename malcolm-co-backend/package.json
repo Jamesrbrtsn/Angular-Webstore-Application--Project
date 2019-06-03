@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/Jamesrbrtsn/Angular-Webstore-Application--Project.git"
   },
-  "author": "Jamesbrtsn",
+  "author": "Jamesrbrtsn",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Jamesrbrtsn/Angular-Webstore-Application--Project/issues"
@@ -18,12 +18,8 @@
   "homepage": "https://github.com/Jamesrbrtsn/Angular-Webstore-Application--Project#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
-    "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongodb": "^3.2.6",
     "mongoose": "^5.5.12"
-  },
-  "devDependencies": {
-    "nodemon": "^1.19.1"
   }
 }

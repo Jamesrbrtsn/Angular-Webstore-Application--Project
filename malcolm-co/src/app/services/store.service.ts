@@ -25,8 +25,10 @@ export class StoreService {
   private apiPort = 3000;
 
   private apiHostUrl = `http://${this.host}:${this.apiPort}/api`;
+
   private itemsUrl = '/items';
   private avaliableAndQuantity = '/quantity/avaliable';
+
   private storeItemsUrl = this.apiHostUrl + this.itemsUrl;
   private storeFrontUrl = this.apiHostUrl + this.itemsUrl + this.avaliableAndQuantity;
 
@@ -65,6 +67,7 @@ export class StoreService {
 
   /* GET items whose name contains search term */
   searchItems(term: string): Observable<StoreItem[]> {
+    console.log(`searching for ${term}`);
     if (!term.trim()) {
       // if not search term, return empty hero array.
       return of([]);

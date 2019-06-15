@@ -18,12 +18,13 @@ export class SearchComponent implements OnInit {
 
   items$: Observable<StoreItem[]>;
   private searchTerms = new Subject<string>();
-  
+
 
   constructor(private storeService: StoreService) { }
 
     // Push a search term into the observable stream.
   search(term: string): void {
+      // -- console.log(term);
       this.searchTerms.next(term);
   }
 

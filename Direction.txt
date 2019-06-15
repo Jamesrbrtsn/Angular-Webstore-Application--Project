@@ -66,6 +66,7 @@ cd jamesrbrtsn-webstore/Real-World Angular Series/jamesrbrtsn-webstore
     cd jamesrbrtsn-webstore/malcolm-co
     cd jamesrbrtsn-webstore/angular-tour-of-heroes
     cd jamesrbrtsn-webstore/Real-World Angular Series/jamesrbrtsn-webstore
+    cd jamesrbrtsn-webstore\malcolm-co-backend
 }
 ----------------///
 

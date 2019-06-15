@@ -3,7 +3,10 @@
 //Intitials
 const express = require('express');
 var bodyParser = require('body-parser');
+var cors = require('cors');
 const app = express();
+
+app.use(cors());
 
 
 //Model references
@@ -116,6 +119,24 @@ router.route('/items/:id') //GET, PUT, DELETE
     });
 
 //Specialty Get
+router.route('/items/:name')
+    .get(function(req, res){
+        StoreItems.Model.find(function(err, storeItems){
+            if(err){ res.send(err)  }
+            let searchResults = [];
+            for(let index=0; index<storeItems.length; index++){
+                if((storeItems[index]["name"].includes(req.params.name)==true)){
+                    if(storeItems[index]["quantity"]>0){
+                        searchResults.push(storeItems[index]);
+                    }
+                }
+            }
+            res.json(searchResults);
+        });
+    });
+
+
+
 router.route('/items/quantity/avaliable') //only return items marked avaliable, and that have quantity
     .get(function(req,res){
         StoreItems.Model.find(function(err, storeItems){

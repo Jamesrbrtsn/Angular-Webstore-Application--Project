@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import {StoreItem} from 'src/app/classes/storeItem';
 import {StoreService} from 'src/app/services/store.service';
-import {Search} from './search/search.component';
+import {SearchComponent} from './search/search.component';
 
 /* import 
 -shopItem

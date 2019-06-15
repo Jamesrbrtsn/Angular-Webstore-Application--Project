@@ -7,7 +7,9 @@ import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'applciation/json' })
+  credentials: 'same-origin', // include, *same-origin, omit for cors
+  headers: new HttpHeaders({ 
+    'Content-Type': 'applciation/json' })
 };
 
 @Injectable({
@@ -28,13 +30,14 @@ export class StoreService {
   private storeItemsUrl = this.apiHostUrl + this.itemsUrl;
   private storeFrontUrl = this.apiHostUrl + this.itemsUrl + this.avaliableAndQuantity;
 
-  /** GET items from the server */  //only avaliable and with quantity
+  /** GET items from the server */  // only avaliable and with quantity
   getItems(): Observable<StoreItem[]> {
     return this.http.get<StoreItem[]>(this.storeFrontUrl)
       .pipe(
         tap(_ => this.log('items')),
         catchError(this.handleError<StoreItem[]>('getItems', []))
       );
+    console.log('getItems attempted');
   }
 
   getItemNo404<Data>(id: number): Observable<StoreItem> {
@@ -66,10 +69,21 @@ export class StoreService {
       // if not search term, return empty hero array.
       return of([]);
     }
-    return this.http.get<StoreItem[]>(`${this.storeItemsUrl}/?name=${term}`).pipe(
+    /*
+    return this.http.get<StoreItem[]>(`${this.storeItemsUrl}/${term}`);
+    fetchh('http://example.com/movies.json')
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(myJson) {
+        console.log(JSON.stringify(myJson));
+      });
+    */
+    return this.http.get<StoreItem[]>(`${this.storeItemsUrl}/?${term}`).pipe(
       tap(_ => this.log(`found items matching "${term}"`)),
       catchError(this.handleError<StoreItem[]>('searchItems', []))
     );
+    //
   }
 
   // addItem(obj)

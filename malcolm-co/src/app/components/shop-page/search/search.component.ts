@@ -13,17 +13,19 @@ import { StoreService } from 'src/app/services/store.service';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss']
 })
+
 export class SearchComponent implements OnInit {
 
   items$: Observable<StoreItem[]>;
   private searchTerms = new Subject<string>();
+  
 
   constructor(private storeService: StoreService) { }
 
     // Push a search term into the observable stream.
-    search(term: string): void {
+  search(term: string): void {
       this.searchTerms.next(term);
-    }
+  }
 
   ngOnInit(): void {
     this.items$ = this.searchTerms.pipe(
